@@ -18,7 +18,7 @@ public class Login {
 		JPanel panel = new JPanel();
 		frame.setSize(300, 200);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		frame.setLocationRelativeTo(null);
 		frame.add(panel);
 
@@ -27,7 +27,6 @@ public class Login {
 		JLabel label = new JLabel("User");
 		label.setBounds(10, 20, 80, 25);
 		panel.add(label);
-
 
 		JTextField userText = new JTextField(20);
 		userText.setBounds(100, 20, 165, 25);
@@ -48,23 +47,23 @@ public class Login {
 			public void actionPerformed(ActionEvent e) {
 				String password = passwordText.getText();
 				String username = userText.getText();
-				
-				if(password.contains("12345") && username.contains("raya")) {
+
+				if (password.contains("12345") && username.contains("raya")) {
 					passwordText.setText(null);
-					userText.setText(null);	
+					userText.setText(null);
 					frame.setVisible(false);
-					Diary.main(null);
-					
+					Diary diary = new Diary();
+
 				} else {
-					JOptionPane.showMessageDialog(null, "Invalid Login Details", "Login Error",JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Invalid Login Details", "Login Error",
+							JOptionPane.ERROR_MESSAGE);
 					passwordText.setText(null);
-					userText.setText(null);	
+					userText.setText(null);
 				}
 			}
-		
-	});
-		
-		frame.setVisible(true);
-	} 
-}
 
+		});
+
+		frame.setVisible(true);
+	}
+}

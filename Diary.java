@@ -12,17 +12,17 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class Diary {
-	public static void main(String[] args) {
+public class Diary extends JFrame {
+	public Diary() {
 
-		JFrame frame = new JFrame("Diary");
-		frame.setSize(800, 900);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		super("Diary");
+		setSize(800, 900);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// main containers and Layouts
 		JPanel mainPanel = new JPanel();
-		frame.setLocationRelativeTo(null);
-		frame.add(mainPanel);
+		setLocationRelativeTo(null);
+		add(mainPanel);
 		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.X_AXIS));
 
 		JPanel leftPanel = new JPanel();
@@ -49,7 +49,7 @@ public class Diary {
 		leftPanel.add(checkBox1);
 		leftPanel.add(checkBox2);
 		leftPanel.add(checkBox3);
-		
+
 		// right side
 		SimpleDateFormat ft = new SimpleDateFormat("dd. M yyyy");
 		JLabel currentDateLabel = new JLabel(ft.format(new Date()));
@@ -68,13 +68,9 @@ public class Diary {
 		JTextField gratitudeText_3 = new JTextField();
 		rightPanel.add(gratitudeText_3);
 
-		
-
-	
-
-		frame.pack();
+		pack();
 		// Setting the frame visibility to true
-		frame.setVisible(true);
+		setVisible(true);
 
 	}
 }
