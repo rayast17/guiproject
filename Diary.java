@@ -1,22 +1,33 @@
 package project;
 
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.swing.AbstractButton;
 import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class Diary extends JFrame {
+	private static final AbstractButton HappyButton = null;
+	private static final AbstractButton OkButton = null;
+	private static final AbstractButton SadButton = null;
+
 	public Diary() {
 
 		super("Diary");
-		setSize(800, 900);
+		setSize(800, 1000);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// main containers and Layouts
@@ -32,13 +43,14 @@ public class Diary extends JFrame {
 		JPanel rightPanel = new JPanel();
 		mainPanel.add(rightPanel);
 		rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
+		rightPanel.setBackground(Color.LIGHT_GRAY);
 
 		// left side
 		JLabel gratituteJournalLabel = new JLabel("Everyday journal");
 		leftPanel.add(gratituteJournalLabel);
 
 		JTextArea journalArea = new JTextArea();
-		journalArea.setBounds(100, 20, 165, 25);
+		journalArea.setBounds(10, 2, 16, 3);
 		journalArea.setEditable(false);
 		journalArea.setText("Today I am feeling:");
 		leftPanel.add(journalArea);
@@ -49,6 +61,16 @@ public class Diary extends JFrame {
 		leftPanel.add(checkBox1);
 		leftPanel.add(checkBox2);
 		leftPanel.add(checkBox3);
+
+		JButton CloseButton = new JButton("Close");
+		CloseButton.setBounds(10, 80, 80, 25);
+		CloseButton.setBackground(Color.LIGHT_GRAY);
+		CloseButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
+		leftPanel.add(CloseButton);
 
 		// right side
 		SimpleDateFormat ft = new SimpleDateFormat("dd. M yyyy");

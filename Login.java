@@ -1,5 +1,7 @@
 package project;
 
+
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -42,6 +44,7 @@ public class Login {
 
 		JButton loginButton = new JButton("login");
 		loginButton.setBounds(10, 80, 80, 25);
+		loginButton.setBackground(Color.LIGHT_GRAY);
 		panel.add(loginButton);
 		loginButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
